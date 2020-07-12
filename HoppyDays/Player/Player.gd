@@ -4,6 +4,7 @@ const SPEED = 1500
 const GRAVITY = 300
 const UP = Vector2(0, -1)
 const JUMP_SPEED = 5000
+const WORLD_LIMIT = 4000
 
 var motion = Vector2(0, 0)
 
@@ -31,6 +32,10 @@ func move():
 		
 	
 func apply_gravity():
+	if position.y > WORLD_LIMIT:
+		end_game()
+	if is_on_ceiling():
+		motion.y = 0
 	if not is_on_floor():
 		motion.y += GRAVITY
 	else:
@@ -39,3 +44,6 @@ func apply_gravity():
 func jump():
 	if Input.is_action_pressed("jump") and is_on_floor():
 		motion.y -= JUMP_SPEED
+		
+func end_game():
+	get_tree().quit()
