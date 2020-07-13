@@ -8,6 +8,8 @@ const WORLD_LIMIT = 4000
 
 var motion = Vector2(0, 0)
 
+var lives = 3
+
 signal animate
 
 func _physics_process(delta):
@@ -47,3 +49,13 @@ func jump():
 		
 func end_game():
 	get_tree().change_scene("res://Scenes/GameOver.tscn")
+	
+func hurt():
+	position.y -= 1
+	yield(get_tree(), "idle_frame")
+	motion.y -= JUMP_SPEED
+	lives -= 1
+	if lives <= 0:
+		end_game()
+		
+	
