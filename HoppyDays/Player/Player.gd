@@ -46,4 +46,4 @@ func jump():
 		motion.y -= JUMP_SPEED
 		
 func end_game():
-	get_tree().quit()
+	get_tree().change_scene("res://Scenes/GameOver.tscn")
