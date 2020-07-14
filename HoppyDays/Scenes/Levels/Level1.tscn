@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Levels/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Hazards/SpikeTop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SFX/Chiptune_Adventures_1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Items/JumpPad.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/GameState.gd" type="Script" id=6]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 431.956, 108.652 )
@@ -20,3 +24,13 @@ tile_data = PoolIntArray( -65515, 1, 0, -65507, 1, 0, 327697, 1, 0, 393222, 0, 0
 
 [node name="SpikeTop" parent="Hazards" instance=ExtResource( 3 )]
 position = Vector2( 745.15, 689.631 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -31.301
+autoplay = true
+
+[node name="JumpPads" type="Node" parent="."]
+
+[node name="JumpPad" parent="JumpPads" instance=ExtResource( 5 )]
+position = Vector2( 902.012, 649.812 )
