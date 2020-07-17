@@ -5,7 +5,7 @@ const GRAVITY = 300
 const UP = Vector2(0, -1)
 const JUMP_SPEED = 5000
 const WORLD_LIMIT = 4000
-const BOOST_MULTIPLIER = 2
+const BOOST_MULTIPLIER = 1.5
 
 var motion = Vector2(0, 0)
 
@@ -60,4 +60,5 @@ func boost():
 	position.y -= 1
 	motion.y = 0
 	yield(get_tree(), "idle_frame")
+	$JumpSFX.play()
 	motion.y -= JUMP_SPEED * BOOST_MULTIPLIER

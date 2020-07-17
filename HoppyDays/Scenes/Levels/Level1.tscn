@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Levels/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://SFX/Chiptune_Adventures_1.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Items/JumpPad.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/GameState.gd" type="Script" id=6]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Items/Coin.tscn" type="PackedScene" id=8]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 6 )
@@ -30,7 +32,44 @@ stream = ExtResource( 4 )
 volume_db = -31.301
 autoplay = true
 
+[node name="Items" type="Node" parent="."]
+
+[node name="Coin" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 1122.4, 538.481 )
+
+[node name="Coin2" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 1549.06, 1230.14 )
+
+[node name="Coin3" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 1668.31, 1222.19 )
+
+[node name="Coin4" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 1782.26, 1227.49 )
+
+[node name="Coin5" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 1917.41, 1227.49 )
+
+[node name="Coin6" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 2052.56, 1230.14 )
+
+[node name="Coin7" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 2163.87, 1211.59 )
+
+[node name="Coin8" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 2275.17, 1230.14 )
+
+[node name="Coin9" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 2391.77, 1230.14 )
+
+[node name="Coin10" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 2497.77, 1222.19 )
+
+[node name="Coin11" parent="Items" instance=ExtResource( 8 )]
+position = Vector2( 2622.32, 1232.79 )
+
 [node name="JumpPads" type="Node" parent="."]
 
 [node name="JumpPad" parent="JumpPads" instance=ExtResource( 5 )]
 position = Vector2( 902.012, 649.812 )
+
+[node name="GUI" parent="." instance=ExtResource( 7 )]
