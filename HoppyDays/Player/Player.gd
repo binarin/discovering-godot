@@ -36,12 +36,12 @@ func move():
 func apply_gravity():
 	if position.y > WORLD_LIMIT:
 		get_tree().call_group("Gamestate", "end_game")
-	if is_on_ceiling():
+	elif is_on_ceiling():
+		motion.y = GRAVITY
+	elif is_on_floor() and motion.y > 0:
 		motion.y = 0
-	if not is_on_floor():
-		motion.y += GRAVITY
 	else:
-		motion.y = 0
+		motion.y += GRAVITY
 		
 func jump():
 	if Input.is_action_pressed("jump") and is_on_floor():
@@ -53,7 +53,7 @@ func jump():
 func hurt():
 	position.y -= 1
 	yield(get_tree(), "idle_frame")
-	motion.y -= JUMP_SPEED
+	motion.y = -JUMP_SPEED
 	$PainSFX.play()
 		
 func boost():
